@@ -1,0 +1,125 @@
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screenrojection"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="shortcut icon" href="/favicon.ico?v=1" type="image/x-icon">
+        <link rel="stylesheet" href="/static/css/base.css">
+
+        <title> James Kominick </title>
+        {% block head_extra %}
+        {% endblock head_extra %}
+        <style>
+            .nav {
+                overflow-x: hidden;
+                transition-property: all;
+                transition-duration: .5s;
+                transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+                float: left;
+                padding: 10px;
+                height: 100%;
+                width: 100px;
+                background-color: green;
+            }
+            .nav.closed {
+                width: 0;
+                padding: 0;
+            }
+            .content {
+                height: 100%;
+                box-shadow: -8px 0px 6px -6px #e1e1e1;
+                margin-left: 120px;
+                overflow-x: hidden;
+                transition-property: all;
+                transition-duration: .5s;
+                transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+            }
+            .content.full {
+                box-shadow: none;
+                margin-left: 0;
+            }
+            .table {
+                display: table;
+            }
+            .row {
+                display: table-row;
+            }
+            .linky {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="-nav" class="nav">
+            wow
+            <div class="table">
+                <div id="-block1-link" class="row linky">block1</div>
+                <div id="-block2-link" class="row linky">block2</div>
+            </div>
+        </div>
+        <div id="-content" class="content">
+            <button id="-nav-toggle">toggle</button>
+            {% block content %}
+            {% endblock content %}
+            <div id="-block1" style="height: 1000px;">block1</div>
+            <div id="-block2" style="height: 1000px;">block2</div>
+        </div>
+    </body>
+
+    <footer id="footer">
+        <a href="https://github.com/jaemk/badge-cache"><img style="width: 32px;" src="/static/assets/github.png" /></a>
+    </footer>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    {% block script %}
+    {% endblock script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var close = document.getElementById("-nav-toggle");
+            var nav = document.getElementById("-nav");
+            var content = document.getElementById("-content");
+            var navClosed = false;
+            handleResize();
+
+            function navOpen() {
+                nav.classList.remove("closed");
+                content.classList.remove("full");
+                navClosed = false;
+            }
+
+            function navClose() {
+                nav.classList.add("closed");
+                content.classList.add("full");
+                navClosed = true;
+            }
+
+            function handleResize() {
+                var width = window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth;
+
+                if (width < 1020 && !navClosed) {
+                    navClose();
+                } else if (width > 1020 && navClosed) {
+                    navOpen();
+                }
+            }
+
+            close.addEventListener('click', function() {
+                if (nav.classList.contains("closed")) {
+                    navClose();
+                } else {
+                    navOpen();
+                }
+            })
+            window.addEventListener("resize", handleResize)
+        })
+    </script>
+</html>
+

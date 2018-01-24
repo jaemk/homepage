@@ -1,0 +1,17 @@
+[package]
+name = "homepage"
+version = "0.1.0"
+authors = ["James Kominick <james.kominick@gmail.com>"]
+
+[dependencies]
+error-chain = "0.11"
+clap = "2"
+env_logger = "0.4"
+log = "0.3"
+chrono = "0.4"
+tera = "0.10"
+
+# rouille = "1"
+# For new `router!` syntax and `log_custom`
+rouille = { git = "https://github.com/tomaka/rouille", rev = "b1b88b1748771a334a78e53c9cc7b21d35bdfa53" }
+
