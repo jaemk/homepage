@@ -17,6 +17,7 @@
             body {
                 z-index: -100;
                 position: relative;
+                overflow: hidden;
             }
             .nav {
                 overflow-x: hidden;
@@ -69,14 +70,36 @@
                 height: 1400px;
             }
             .section {
-                padding-top: 100px;
-                padding: 100px 20px 0px 0px;
+                padding: 100px 20px 40px 20px;
                 text-align: center;
+            }
+            .section-title {
+                text-align: left;
+                padding-bottom: 20px;
             }
             .about-text {
                 max-width: 700px;
                 margin: auto;
-                font-size: 15px;
+                font-size: 17px;
+            }
+
+            .exp-entry {
+                padding-left: 10px;
+                background-color: #444444;
+                color: white;
+                font-weight: 300;
+                max-width: 900px;
+            }
+            .exp-company {
+                font-size: 20px;
+            }
+            .exp-title {
+            }
+            .exp-time-span {
+            }
+            .exp-list {
+            }
+            .exp-line {
             }
 
             .table {
@@ -104,8 +127,11 @@
                 padding: 1px 3px;
             }
 
-            .blue {
-                background-color: blue;
+            .myblue {
+                background-color: #80B6E1;
+            }
+            .mygrey {
+                background-color: #c3c4c5;
             }
         </style>
     </head>
@@ -163,16 +189,39 @@
             {% block content %}
             {% endblock content %}
 
-            <div id="-about" class="section">
+            <div id="-about" class="section myblue">
                 <img src="/static/assets/github.png"/>
                 <br/>
                 PIC HERE
                 <br/>
                 <div class="about-text flow-text">
+                    Highly motivated, proactive, detail-oriented developer with a background in Engineering
+                    targeting a position in Software Development. Dedicated to furthering knowledge,
+                    improving skills, and exploring new technologies.
                 </div>
 
             </div>
-            <div id="-experience" class="section" style="height: 1000px;">experience</div>
+
+            <div id="-experience" class="section mygrey">
+                <h4 class="section-title"> Experience </h4>
+                <div class="exp-entry left-align card-panel z-depth-4">
+                    <span class="exp-company">Communally &#124;</span>
+                    <span class="exp-title">Application Programmer Analyst</span>
+                    <br/>
+                    <span class="exp-time-span">March 2016 - Present</span>
+                    <br/>
+                    ------
+                    <br/>
+                    <ul class="exp-list">
+                        <li class="exp-line">
+                            A
+                        </li>
+                        <li class="exp-line">
+                            B
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div id="-technology" class="section" style="height: 1000px;">tech</div>
             <div id="-education" class="section" style="height: 1000px;">educ</div>
             <div id="-contact" class="section" style="height: 1000px;">contact</div>
@@ -217,6 +266,7 @@
                 links[1].scrollTop = 120;
                 links[0].addEventListener("click", function() {
                     links[1].scrollIntoView();
+                    navClose();
                 });
             });
 
