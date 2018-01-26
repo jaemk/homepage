@@ -10,7 +10,7 @@ use env_logger;
 use chrono::Local;
 use tera::{Context, Tera};
 
-use {ToResponse};
+use {ToTextResponse, ToHtmlResponse, ToJsonResponse};
 use errors::*;
 
 
@@ -90,6 +90,9 @@ fn route_request(request: &rouille::Request, template: Arc<Tera>) -> Result<roui
     Ok(router!(request,
         (GET) ["/"] => {
             template.render("home.html", &Context::new())?.to_html_resp()
+        },
+        (GET) ["/appinfo"] => {
+            json!({"version": crate_version!()}).to_json_resp()?
         },
         (GET) ["/favicon.ico"]  => { serve_file("static/assets/favicon.ico")? },
         (GET) ["/robots.txt"]   => { serve_file("static/assets/robots.txt")? },

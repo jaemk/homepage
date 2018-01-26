@@ -313,6 +313,7 @@ dependencies = [
  "error-chain 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "rouille 1.0.3 (git+https://github.com/tomaka/rouille?rev=b1b88b1748771a334a78e53c9cc7b21d35bdfa53)",
+ "serde_json 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "tera 0.10.10 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 

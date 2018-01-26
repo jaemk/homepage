@@ -1,12 +1,14 @@
 use std::io;
 use log;
 use tera;
+use serde_json;
 
 error_chain! {
     foreign_links {
         LogInit(log::SetLoggerError);
         Template(tera::Error);
         FileOpen(io::Error);
+        Json(serde_json::Error);
     }
     errors {
         DoesNotExist(s: String) {

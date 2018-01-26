@@ -10,6 +10,7 @@ env_logger = "0.4"
 log = "0.3"
 chrono = "0.4"
 tera = "0.10"
+serde_json = "1"
 
 # rouille = "1"
 # For new `router!` syntax and `log_custom`
