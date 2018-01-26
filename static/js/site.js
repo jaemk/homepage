@@ -30,14 +30,43 @@ document.addEventListener('DOMContentLoaded', function() {
             || document.body.clientWidth;
     }
 
+    var isNavOpen = false;
+    function navOpen() {
+        nav.classList.add("nav-open");
+        content.classList.add("nav-open");
+        content.classList.add("slide-open");
+        if (width() < navThresh) {
+            content.classList.remove("offset");
+        } else {
+            content.classList.add("offset");
+        }
+        isNavOpen = true;
+    }
+    function navClose() {
+        nav.classList.remove("nav-open");
+        content.classList.remove("nav-open");
+        content.classList.remove("offset");
+        content.classList.remove("slide-open");
+        isNavOpen = false;
+    }
+    nav_toggle.addEventListener('click', function() {
+        if (nav.classList.contains("nav-open")) {
+            navClose();
+        } else {
+            navOpen();
+        }
+    });
+
     var navThresh = 1020;
     side_links.forEach(function(links){
         links[1].scrollTop = 120;
         links[0].addEventListener("click", function() {
-            links[1].scrollIntoView();
             if (width() < navThresh) {
                 navClose();
             }
+            setTimeout(function() {
+              links[1].scrollIntoView();
+            }, 110);
         });
     });
 
@@ -60,9 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 case "#education":
                      ducation.scrollIntoView();
                     break;
-                case "#contact":
-                    contact.scrollIntoView();
-                    break;
                 default:
                     break;
             }
@@ -70,40 +96,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     scrollToHash();
 
-    var navClosed   = false;
-    function navOpen() {
-        nav.classList.remove("closed");
-        content.classList.remove("full");
-        navClosed = false;
-        if (width() < navThresh) {
-            content.classList.add("absolute-slide");
-        }
-    }
-    function navClose() {
-        nav.classList.add("closed");
-        content.classList.add("full");
-        navClosed = true;
-        content.classList.remove("absolute-slide");
-    }
-    nav_toggle.addEventListener('click', function() {
-        if (nav.classList.contains("closed")) {
-            navOpen();
-        } else {
-            navClose();
-        }
-    })
-
     function handleResize() {
         var _width = width();
-
-        if (_width < navThresh && !navClosed) {
+        if (_width < navThresh && isNavOpen) {
             navClose();
-        } else if (_width > navThresh && navClosed) {
+        } else if (_width > navThresh && !isNavOpen) {
             navOpen();
         }
     }
     // Handle initial page sizing
-    handleResize();
+    setTimeout(handleResize, 200);
     window.addEventListener("resize", handleResize);
 
 });

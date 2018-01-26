@@ -5,30 +5,31 @@
     margin-bottom: 15px;
 }
 
+
 body {
-    z-index: -100;
-    position: relative;
     overflow: hidden;
+    overflow-y: scroll;
     color: #292929;
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 300;
+    height: 100%;
+    width: 100%;
+    z-index: -100;
 }
 
 .nav {
-    overflow-x: hidden;
-    transition-property: all;
-    transition-duration: .5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    float: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
     height: 100%;
-    width: 150px;
+    z-index: 1;
     background-color: #ffffff;
-    z-index: -1;
-    position: relative;
 }
-.nav.closed {
-    width: 0;
-    padding: 0;
+.nav-open {
+    transition: left 0.2s;
 }
 .nav-content {
     height: 60px;
@@ -46,20 +47,21 @@ body {
 
 
 .content {
-    height: 100%;
-    box-shadow: -6px 0px 7px -3px #7a7a7a;
-    margin-left: 150px;
-    overflow-x: hidden;
-    transition-property: all;
-    transition-duration: .5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-.content.full {
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: 1;
     box-shadow: none;
-    margin-left: 0px;
 }
-.content.absolute-slide {
-    transform: translateX(150px);
+.content.slide-open {
+    left: 150px;
+    box-shadow: -6px 0px 7px -3px #7a7a7a;
+}
+.content.slide-open.offset {
+    padding-right: 150px;
 }
 
 .header {
@@ -77,7 +79,7 @@ body {
     margin: auto;
     margin-top: 50px;
     padding: 20px;
-    padding-left: 60px;
+    padding-left: 20px;
     font-size: 20px;
 }
 
@@ -122,7 +124,7 @@ body {
     padding-right: 7px;
 }
 .exp-title {
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 .exp-time-span {
     padding-left: 7px;
@@ -132,7 +134,7 @@ hr.exp-hr {
     border: 0;
     border-top: 1px solid;
     width: 50%;
-    min-width: 375px;
+    min-width: 250px;
     margin-left: 0px
 }
 .table.exp-list {
@@ -151,7 +153,6 @@ hr.exp-hr {
     background-color: #ededed;
     color: #444444;
 }
-
 
 
 .chip-block {
@@ -181,11 +182,11 @@ hr.exp-hr {
     padding: 1px 3px;
 }
 
+
 .myblue {
     background-color: #80B6E1;
 }
 .mygrey {
-    /* background-color: #c3c4c5; */
     background-color: #ededed;
 }
 .mydarkgrey {
