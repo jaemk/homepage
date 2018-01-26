@@ -1,6 +1,134 @@
 {% extends "base.html" %}
+{% import "macros.html" as macros %}
 
 {% block content %}
+
+<div id="-nav" class="nav">
+    <div class="table">
+        {{ macros::nav_link(id="-top-link",     hash="#top",        icon="arrow_upward",        text="") }}
+        {{ macros::nav_link(id="-about-link",   hash="#about",      icon="account_circle",      text="About") }}
+        {{ macros::nav_link(id="-exp-link",     hash="#experience", icon="business",            text="Experience") }}
+        {{ macros::nav_link(id="-tech-link",    hash="#technology", icon="laptop_chromebook",   text="Technology") }}
+        {{ macros::nav_link(id="-proj-link",    hash="#projects",   icon="star",                text="Projects") }}
+        {{ macros::nav_link(id="-ed-link",      hash="#education",  icon="book",                text="Education") }}
+    </div>
+</div>
+
+<div id="-content" class="content">
+    <div id="-header" class="header valign-wrapper">
+        <i id="-nav-toggle" class="material-icons clicky hamburgy">menu</i>
+    </div>
+
+    <div id="-top" class="section mygrey">
+        <h2> James Kominick </h2>
+        <span> Software Developer </span>
+
+        <div class="top-links">
+            {{ macros::image_link(image_url="/static/assets/github.png", url="https://github.com/jaemk", text="github/jaemk") }}
+            {{ macros::image_link(image_url="/static/assets/linkedin.png",
+                                url="https://www.linkedin.com/in/james-kominick/",
+                                text="linkedin/james-kominick") }}
+            {{ macros::icon_link(icon="mail_outline", url="mailto:james@kominick.com", text="james@kominick.com") }}
+        </div>
+    </div>
+
+    <div id="-about" class="section myblue">
+        <img src="/static/assets/github.png"/>
+        <br/>
+        PIC HERE
+        <br/>
+        <div class="about-text">
+            Highly motivated, proactive, detail-oriented developer with a background in Engineering.
+            Dedicated to furthering knowledge, improving skills, and exploring new technologies.
+        </div>
+
+    </div>
+
+    <div id="-experience" class="section mygrey">
+        <h4 class="section-title"> Experience </h4>
+
+        <div class="exp-entry card-panel z-depth-4">
+            {{ macros::exp_title(org="Communally", title="Application Programmer Analyst", time="March 2016 to Present") }}
+
+            {{ macros::exp_bullet(t="Lead development of a responsive budgeting tool webapp (JavaScript/React)") }}
+            {{ macros::exp_sub_bullet(t="Participate in research and development of required features and overall UI design") }}
+            {{ macros::exp_sub_bullet(t="Design and build a new REST api, integrating with the existing backend system") }}
+            {{ macros::exp_sub_bullet(t="Architect new database schema and handle transformation and migration of legacy data") }}
+            {{ macros::exp_sub_bullet(t="Accommodate a myriad of unplanned feature requests") }}
+            {{ macros::exp_bullet(t="Lead migration of backend services to Python3 and upgrades of production systems (systemd, gunicorn)") }}
+            {{ macros::exp_bullet(t="Maintain and update a comprehensive Django application (Python)") }}
+            {{ macros::exp_bullet(t="Re-architect core database (PostgreSQL) schemas to improve query performance and programming ergonomics") }}
+            {{ macros::exp_bullet(t="Develop a report generation framework to allow quickly defining complex reports as Python data structures,
+                                     enabling faster development and consistent, maintainable code") }}
+            {{ macros::exp_bullet(t="Collaborate with User Experience and Business Analysts in developing well-defined project specifications") }}
+            {{ macros::exp_bullet(t="Automate build/compilation and deployments of various production, training, and demo sites") }}
+        </div>
+
+        <div class="exp-entry card-panel z-depth-4">
+            {{ macros::exp_title(org="Philly Shipyard", title="Hull Designer", time="September 2013 to March 2016") }}
+
+            {{ macros::exp_bullet(t="Developed and maintained purpose built Python modules utilized by designers across multiple companies") }}
+            {{ macros::exp_sub_bullet(t="Automated bill of material reporting, eliminating physical archives and error-prone procedures") }}
+            {{ macros::exp_sub_bullet(t="Designed applications to automate raw material calculations, enabling crucial requisition timelines") }}
+            {{ macros::exp_sub_bullet(t="Developed TribonM3 (ship modeling software) Python plugins to help automate design processes") }}
+            {{ macros::exp_sub_bullet(t="Implemented centralized code repository to ensure seamless distribution to users") }}
+            {{ macros::exp_bullet(t="Consolidated disparate MS Access databases into a unified SQLite database using pyodbc and SQLAlchemy") }}
+            {{ macros::exp_sub_bullet(t="Provided user interface to query the aggregated info on ship-wide raw materials usage") }}
+            {{ macros::exp_bullet(t="Implemented ship-wide weight analysis to track unreported changes in ongoing container vessel design") }}
+        </div>
+
+    </div>
+
+    <div id="-technology" class="section myblue">
+        <h4 class="section-title"> Technology </h4>
+
+        <div class="chip-block">
+            <div class="chip custom"> Python </div>
+            <div class="chip custom"> Rust </div>
+            <div class="chip custom"> JavaScript </div>
+            <div class="chip custom"> C </div>
+            <div class="chip custom"> SQL </div>
+            <div class="chip custom"> Bash </div>
+            <div class="chip custom"> React </div>
+            <div class="chip custom"> HTML </div>
+            <div class="chip custom"> CSS </div>
+            <div class="chip custom"> Django </div>
+            <div class="chip custom"> Flask </div>
+            <div class="chip custom"> PostgreSQL </div>
+            <div class="chip custom"> SQLite </div>
+            <div class="chip custom"> Nginx </div>
+            <div class="chip custom"> Apache </div>
+            <div class="chip custom"> git </div>
+            <div class="chip custom"> docker </div>
+            <div class="chip custom"> Linux, Debian/Ubuntu </div>
+        </div>
+    </div>
+
+    <div id="-projects" class="section mygrey">
+        <h4 class="section-title"> Projects </h4>
+
+        <div class="exp-entry card-panel z-depth-4">
+            {{ macros::exp_bullet(t="PostgreSQL/SQLite/MySQL migration management library and CLI program") }}
+            {{ macros::exp_bullet(t="Personal pastebin clone -- server, web client, and CLI client") }}
+            {{ macros::exp_bullet(t="Encrypted file transfer utility -- server, web client, and CLI client") }}
+            {{ macros::exp_bullet(t="Barebones asynchronous HTTP server") }}
+            {{ macros::exp_bullet(t="Shields.io badge caching service for the rustlang community cookbook") }}
+            {{ macros::exp_bullet(t="Bicycle tachometer/speedometer with mounted LCD display") }}
+            {{ macros::exp_bullet(t="Wireless dual-servo gimballed laser pointer for couch-based cat interaction") }}
+        </div>
+    </div>
+
+    <div id="-education" class="section myblue">
+        <h4 class="section-title"> Education </h4>
+
+        <div class="exp-entry education card-panel z-depth-4 black-text">
+            {{ macros::exp_title(org="Mechincal Engineering (BSME): Magna Cum Laude, GPA: 3.7/4.0 -- June 2015",
+                                title="Drexel University -- Philadelphia, PA",
+                                time="") }}
+            {{ macros::exp_bullet(t="Teaching Assistant / Grader, Mechanics of Materials II") }}
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
 

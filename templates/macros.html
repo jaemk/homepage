@@ -1,0 +1,69 @@
+
+
+{% macro nav_link(id, hash, icon, text) %}
+    <a id="{{id}}" href="{{hash}}" class="row clicky nav-link highlighty">
+        <div class="nav-content valign-wrapper">
+            <i class="material-icons nav-icon">{{icon}}</i>
+            {{text}}
+        </div>
+    </a>
+{% endmacro nav_link %}
+
+
+{% macro image_link(image_url, url, text) %}
+    <a href="{{url}}" class="row clicky nav-link highlighty">
+        <div class="nav-content valign-wrapper">
+            <img style="width: 30px; margin-right: 10px;" src="{{image_url}}"/>
+            {{text}}
+        </div>
+    </a>
+{% endmacro image_link %}
+
+
+{% macro icon_link(icon, url, text) %}
+    <a href="{{url}}" class="row clicky nav-link highlighty">
+        <div class="nav-content valign-wrapper">
+            <i style="font-size: 30px; margin-right: 10px;" class="material-icons nav-icon">{{icon}}</i>
+            {{text}}
+        </div>
+    </a>
+{% endmacro icon_link %}
+
+
+{% macro exp_title(org, title, time) %}
+    <span class="exp-title">{{title}}</span>
+    <div>
+        {% if time|length > 0 %}
+            <span class="exp-company">{{org}}</span>
+            <span>&#124;</span>
+            <span class="exp-time-span">{{time}}</span>
+        {% else %}
+            <span class="exp-company">{{org}}</span>
+        {% endif %}
+    </div>
+    <hr class="exp-hr"/>
+{% endmacro exp_title %}
+
+
+{% macro exp_bullet(t) %}
+    <div class="table exp-list">
+        <div class="row exp-line">
+            <div class="cell bullet">&#8640;</div>
+            <div class="cell">
+                {{t}}
+            </div>
+        </div>
+    </div>
+{% endmacro exp_bullet %}
+
+
+{% macro exp_sub_bullet(t) %}
+    <div class="table exp-list">
+        <div class="row exp-line">
+            <div class="cell bullet indent">&#8640;</div>
+            <div class="cell">
+                {{t}}
+            </div>
+        </div>
+    </div>
+{% endmacro exp_sub_bullet %}
