@@ -11,7 +11,7 @@
 
 
 {% macro image_link(image_url, url, text) %}
-    <a href="{{url}}" class="trow clicky nav-link highlighty">
+    <a href="{{url}}" target="_blank" class="trow clicky nav-link highlighty">
         <div class="nav-content valign-wrapper">
             <img style="width: 30px; margin-right: 10px;" src="{{image_url}}"/>
             {{text}}
@@ -21,7 +21,7 @@
 
 
 {% macro icon_link(icon, url, text) %}
-    <a href="{{url}}" class="trow clicky nav-link highlighty">
+    <a href="{{url}}" target="_blank" class="trow clicky nav-link highlighty">
         <div class="nav-content valign-wrapper">
             <i style="font-size: 30px; margin-right: 10px;" class="material-icons nav-icon">{{icon}}</i>
             {{text}}
@@ -47,7 +47,7 @@
 
 {% macro proj(name, link_url, desc) %}
     <div class="col s12 m6">
-        <a href="{{link_url}}" class="nav-link">
+        <a href="{{link_url}}" target="_blank" class="nav-link">
             <div class="proj-item card-panel z-depth-4 clicky highlighty">
                 <div class="proj-title">
                     {{name}}
