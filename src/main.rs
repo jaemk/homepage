@@ -5,7 +5,11 @@
 #[macro_use] extern crate rouille;
 #[macro_use] extern crate tera;
 #[macro_use] extern crate log;
+#[macro_use] extern crate lazy_static;
 #[macro_use] extern crate serde_json;
+#[macro_use] extern crate serde_derive;
+extern crate serde;
+extern crate toml;
 extern crate env_logger;
 extern crate chrono;
 
@@ -14,6 +18,8 @@ mod errors;
 mod service;
 
 use std::env;
+use std::fs;
+use std::io::Read;
 
 use clap::{App, Arg, SubCommand};
 
@@ -22,6 +28,27 @@ use errors::*;
 
 static APPNAME: &'static str = "HomePage";
 
+lazy_static! {
+    pub static ref CONFIG: Config = Config::load();
+}
+
+
+#[derive(Deserialize)]
+pub struct Config {
+    pub params: toml::Value,
+}
+impl Config {
+    pub fn load() -> Self {
+        let mut f = fs::File::open("Cargo.toml").expect("Failed opening Cargo.toml");
+        let mut s = String::new();
+        f.read_to_string(&mut s).expect("Error reading Cargo.toml");
+        let params: toml::Value = toml::from_str(&s).expect("Failed parsing Cargo.toml");
+        Self { params }
+    }
+    pub fn check(&self) -> Result<()> {
+        Ok(())
+    }
+}
 
 // ---------------
 // Traits for constructing `rouille::Response`s from other types

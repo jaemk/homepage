@@ -10,7 +10,7 @@ use env_logger;
 use chrono::Local;
 use tera::{Context, Tera};
 
-use {ToTextResponse, ToHtmlResponse, ToJsonResponse};
+use {ToTextResponse, ToHtmlResponse, ToJsonResponse, CONFIG};
 use errors::*;
 
 
@@ -20,6 +20,8 @@ use errors::*;
 /// - server
 /// - handle errors
 pub fn start(host: &str, port: u16) -> Result<()> {
+    CONFIG.check()?;
+
     // Set a custom logging format & change the env-var to "LOG"
     // e.g. LOG=info chatbot serve
     env_logger::LogBuilder::new()
@@ -92,7 +94,7 @@ fn route_request(request: &rouille::Request, template: Arc<Tera>) -> Result<roui
             template.render("home.html", &Context::new())?.to_html_resp()
         },
         (GET) ["/appinfo"] => {
-            json!({"version": crate_version!()}).to_json_resp()?
+            json!({"version": CONFIG.params["package"]["version"].as_str().unwrap_or("")}).to_json_resp()?
         },
         (GET) ["/favicon.ico"]  => { serve_file("static/assets/favicon.ico")? },
         (GET) ["/robots.txt"]   => { serve_file("static/assets/robots.txt")? },
