@@ -96,12 +96,16 @@ body {
     max-width: 700px;
     margin: auto;
 }
+.cool-pic {
+    margin: auto;
+    margin-bottom: 20px;
+}
 
 .table {
     display: table;
     width: 100%;
 }
-.row {
+.trow {
     display: table-row;
     width: 100%;
 }
@@ -152,6 +156,26 @@ hr.exp-hr {
 .exp-entry.education {
     background-color: #ededed;
     color: #444444;
+}
+
+
+.proj-group {
+    max-width: 900px;
+    margin: auto;
+}
+.proj-row {
+    margin: 1px;
+}
+.proj-item {
+    background-color: #444444;
+    color: white;
+}
+.proj-item:hover {
+    background-color: #c3c2c2;
+    color: #444444;
+}
+.proj-title {
+    font-weight: 400;
 }
 
 

@@ -1,7 +1,7 @@
 
 
 {% macro nav_link(id, hash, icon, text) %}
-    <a id="{{id}}" href="{{hash}}" class="row clicky nav-link highlighty">
+    <a id="{{id}}" href="{{hash}}" class="trow clicky nav-link highlighty">
         <div class="nav-content valign-wrapper">
             <i class="material-icons nav-icon">{{icon}}</i>
             {{text}}
@@ -11,7 +11,7 @@
 
 
 {% macro image_link(image_url, url, text) %}
-    <a href="{{url}}" class="row clicky nav-link highlighty">
+    <a href="{{url}}" class="trow clicky nav-link highlighty">
         <div class="nav-content valign-wrapper">
             <img style="width: 30px; margin-right: 10px;" src="{{image_url}}"/>
             {{text}}
@@ -21,7 +21,7 @@
 
 
 {% macro icon_link(icon, url, text) %}
-    <a href="{{url}}" class="row clicky nav-link highlighty">
+    <a href="{{url}}" class="trow clicky nav-link highlighty">
         <div class="nav-content valign-wrapper">
             <i style="font-size: 30px; margin-right: 10px;" class="material-icons nav-icon">{{icon}}</i>
             {{text}}
@@ -45,9 +45,25 @@
 {% endmacro exp_title %}
 
 
+{% macro proj(name, link_url, desc) %}
+    <div class="col s12 m6">
+        <a href="{{link_url}}" class="nav-link">
+            <div class="proj-item card-panel z-depth-4 clicky highlighty">
+                <div class="proj-title">
+                    {{name}}
+                </div>
+                <div class="proj-text">
+                    {{desc}}
+                </div>
+            </div>
+        </a>
+    </div>
+{% endmacro proj %}
+
+
 {% macro exp_bullet(t) %}
     <div class="table exp-list">
-        <div class="row exp-line">
+        <div class="trow exp-line">
             <div class="cell bullet">&#8640;</div>
             <div class="cell">
                 {{t}}
@@ -59,7 +75,7 @@
 
 {% macro exp_sub_bullet(t) %}
     <div class="table exp-list">
-        <div class="row exp-line">
+        <div class="trow exp-line">
             <div class="cell bullet indent">&#8640;</div>
             <div class="cell">
                 {{t}}
