@@ -7,9 +7,9 @@
     <div class="table">
         {{ macros::nav_link(id="-top-link",     hash="#top",        icon="arrow_upward",        text="") }}
         {{ macros::nav_link(id="-about-link",   hash="#about",      icon="account_circle",      text="About") }}
-        {{ macros::nav_link(id="-exp-link",     hash="#experience", icon="business",            text="Experience") }}
-        {{ macros::nav_link(id="-tech-link",    hash="#technology", icon="laptop_chromebook",   text="Technology") }}
         {{ macros::nav_link(id="-proj-link",    hash="#projects",   icon="star",                text="Projects") }}
+        {{ macros::nav_link(id="-tech-link",    hash="#technology", icon="laptop_chromebook",   text="Technology") }}
+        {{ macros::nav_link(id="-exp-link",     hash="#experience", icon="business",            text="Experience") }}
         {{ macros::nav_link(id="-ed-link",      hash="#education",  icon="book",                text="Education") }}
     </div>
 </div>
@@ -44,6 +44,63 @@
             Dedicated to furthering knowledge, improving skills, and exploring new technologies.
         </div>
 
+    </div>
+
+    <div id="-projects" class="section mygrey">
+        <h4 class="section-title"> Projects </h4>
+
+        <div class="proj-group">
+            <div class="row proj-row">
+                {{ macros::proj(name="migrant_lib", link_url="https://github.com/jaemk/migrant_lib",
+                                desc="Embeddable database configuration and migration management library") }}
+                {{ macros::proj(name="migrant", link_url="https://github.com/jaemk/migrant",
+                                desc="Database migration management") }}
+            </div>
+            <div class="row proj-row">
+                {{ macros::proj(name="self_update", link_url="https://github.com/jaemk/self_update",
+                                desc="Self-update functionality for Rust executables") }}
+                {{ macros::proj(name="notify-hook", link_url="https://github.com/jaemk/notify-hook",
+                                desc="GitHub PushEvent compatible post-receive git hook") }}
+            </div>
+            <div class="row proj-row">
+                {{ macros::proj(name="upaste", link_url="https://github.com/jaemk/upaste-server",
+                                desc="Personal pastebin clone -- server, web client, & CLI client") }}
+                {{ macros::proj(name="transfer", link_url="https://github.com/jaemk/transfer",
+                                desc="Encrypted file sharing utility -- server, web client, & CLI client") }}
+            </div>
+            <div class="row proj-row">
+                {{ macros::proj(name="mini_http", link_url="https://github.com/jaemk/mini_http",
+                                desc="Barebones asynchronous HTTP server") }}
+                {{ macros::proj(name="badge-cache", link_url="https://github.com/jaemk/badge-cache",
+                                desc="Shields.io badge caching service for the Rustlang community cookbook") }}
+            </div>
+        </div>
+    </div>
+
+    <div id="-technology" class="section myblue">
+        <h4 class="section-title"> Technology </h4>
+
+        <div class="chip-block">
+            <div class="chip custom"> Python </div>
+            <div class="chip custom"> Rust </div>
+            <div class="chip custom"> JavaScript </div>
+            <div class="chip custom"> C </div>
+            <div class="chip custom"> SQL </div>
+            <div class="chip custom"> Bash </div>
+            <div class="chip custom"> React </div>
+            <div class="chip custom"> HTML </div>
+            <div class="chip custom"> CSS </div>
+            <div class="chip custom"> Django </div>
+            <div class="chip custom"> Flask </div>
+            <div class="chip custom"> PostgreSQL </div>
+            <div class="chip custom"> SQLite </div>
+            <div class="chip custom"> Nginx </div>
+            <div class="chip custom"> Apache </div>
+            <div class="chip custom"> git </div>
+            <div class="chip custom"> docker </div>
+            <div class="chip custom"> Linux </div>
+            <div class="chip custom"> Debian/Ubuntu </div>
+        </div>
     </div>
 
     <div id="-experience" class="section mygrey">
@@ -114,63 +171,6 @@
             {{ macros::exp_bullet(t="Assisted in and contributed to the design of new and innovative products") }}
         </div>
 
-    </div>
-
-    <div id="-technology" class="section myblue">
-        <h4 class="section-title"> Technology </h4>
-
-        <div class="chip-block">
-            <div class="chip custom"> Python </div>
-            <div class="chip custom"> Rust </div>
-            <div class="chip custom"> JavaScript </div>
-            <div class="chip custom"> C </div>
-            <div class="chip custom"> SQL </div>
-            <div class="chip custom"> Bash </div>
-            <div class="chip custom"> React </div>
-            <div class="chip custom"> HTML </div>
-            <div class="chip custom"> CSS </div>
-            <div class="chip custom"> Django </div>
-            <div class="chip custom"> Flask </div>
-            <div class="chip custom"> PostgreSQL </div>
-            <div class="chip custom"> SQLite </div>
-            <div class="chip custom"> Nginx </div>
-            <div class="chip custom"> Apache </div>
-            <div class="chip custom"> git </div>
-            <div class="chip custom"> docker </div>
-            <div class="chip custom"> Linux </div>
-            <div class="chip custom"> Debian/Ubuntu </div>
-        </div>
-    </div>
-
-    <div id="-projects" class="section mygrey">
-        <h4 class="section-title"> Projects </h4>
-
-        <div class="proj-group">
-            <div class="row proj-row">
-                {{ macros::proj(name="migrant_lib", link_url="https://github.com/jaemk/migrant_lib",
-                                desc="Embeddable database configuration and migration management library") }}
-                {{ macros::proj(name="migrant", link_url="https://github.com/jaemk/migrant",
-                                desc="Database migration management") }}
-            </div>
-            <div class="row proj-row">
-                {{ macros::proj(name="self_update", link_url="https://github.com/jaemk/self_update",
-                                desc="Self-update functionality for Rust executables") }}
-                {{ macros::proj(name="notify-hook", link_url="https://github.com/jaemk/notify-hook",
-                                desc="GitHub PushEvent compatible post-receive git hook") }}
-            </div>
-            <div class="row proj-row">
-                {{ macros::proj(name="upaste", link_url="https://github.com/jaemk/upaste-server",
-                                desc="Personal pastebin clone -- server, web client, & CLI client") }}
-                {{ macros::proj(name="transfer", link_url="https://github.com/jaemk/transfer",
-                                desc="Encrypted file sharing utility -- server, web client, & CLI client") }}
-            </div>
-            <div class="row proj-row">
-                {{ macros::proj(name="mini_http", link_url="https://github.com/jaemk/mini_http",
-                                desc="Barebones asynchronous HTTP server") }}
-                {{ macros::proj(name="badge-cache", link_url="https://github.com/jaemk/badge-cache",
-                                desc="Shields.io badge caching service for the Rustlang community cookbook") }}
-            </div>
-        </div>
     </div>
 
     <div id="-education" class="section myblue">
