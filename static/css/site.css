@@ -97,7 +97,8 @@ body {
     margin-bottom: 20px;
 }
 .mugshot {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     border: 5px solid #444444;
     border-radius: 300px;
 }
