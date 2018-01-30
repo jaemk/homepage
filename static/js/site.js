@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var isNavOpen = false;
+    var navThresh = 1000;
     function navOpen() {
         nav.classList.add("nav-open");
         content.classList.add("nav-open");
@@ -57,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    var navThresh = 1020;
     side_links.forEach(function(links){
         links[1].scrollTop = 120;
         links[0].addEventListener("click", function() {
