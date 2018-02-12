@@ -24,17 +24,18 @@ pub fn start(host: &str, port: u16) -> Result<()> {
 
     // Set a custom logging format & change the env-var to "LOG"
     // e.g. LOG=info chatbot serve
-    env_logger::LogBuilder::new()
-        .format(|record| {
-            format!("{} [{}] - [{}] -> {}",
+    use std::io::Write;
+    env_logger::Builder::new()
+        .format(|buf, record| {
+            writeln!(buf, "{} [{}] - [{}] -> {}",
                 Local::now().format("%Y-%m-%d_%H:%M:%S"),
                 record.level(),
-                record.location().module_path(),
+                record.module_path().unwrap_or("<unknown>"),
                 record.args()
                 )
             })
         .parse(&env::var("LOG").unwrap_or_default())
-        .init()?;
+        .init();
 
     let mut tera = compile_templates!("templates/**/*");
     tera.autoescape_on(vec!["html"]);
