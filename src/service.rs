@@ -58,7 +58,7 @@ pub fn start(host: &str, port: u16) -> Result<()> {
         // dispatch and handle errors
         rouille::log_custom(request, log_ok, log_err, move || {
             match route_request(request, template) {
-                Ok(resp) => resp,
+                Ok(resp) => rouille::content_encoding::apply(request, resp),
                 Err(e) => {
                     use self::ErrorKind::*;
                     error!("Handler Error: {}", e);
