@@ -99,6 +99,7 @@ fn route_request(request: &rouille::Request, template: Arc<Tera>) -> Result<roui
         },
         (GET) ["/favicon.ico"]  => { serve_file("static/assets/favicon.ico")? },
         (GET) ["/robots.txt"]   => { serve_file("static/robots.txt")? },
+        (GET) ["/keybase.txt"]  => { serve_file("static/keybase.txt")? },
 
         _ => {
             // static files

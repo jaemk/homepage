@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/jaemk
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://james.kominick.com
+  * I am jaemk (https://keybase.io/jaemk) on keybase.
+  * I have a public key ASDRTrRsQ4wmHVtEbSuIri8iabfz13K-5BGkTjjXC-bdnwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d14eb46c438c261d5b446d2b88ae2f2269b7f3d772bee411a44e38d70be6dd9f0a",
+      "host": "keybase.io",
+      "kid": "0120d14eb46c438c261d5b446d2b88ae2f2269b7f3d772bee411a44e38d70be6dd9f0a",
+      "uid": "644e35c75e1931fec2d4288bcf0bc119",
+      "username": "jaemk"
+    },
+    "merkle_root": {
+      "ctime": 1520541628,
+      "hash": "9225935b100208f7987fe2ba4217b5fb08a07ae09fd01985a2ec5dcba330d49461db83cae526e0abbdabb85cc908917d51e5e6d12ffd039cb8805561b3337eef",
+      "hash_meta": "ecd094a1d5531926cf31216e767b5201f00a6ef44e75841c9da4b6f2fbd12911",
+      "seqno": 2205374
+    },
+    "service": {
+      "hostname": "james.kominick.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.45"
+  },
+  "ctime": 1520541653,
+  "expire_in": 504576000,
+  "prev": "5dbbc94000976586bccbc90e463d9fa783a20b7a69bacd4f466da3f752a32af0",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg0U60bEOMJh1bRG0riK4vImm389dyvuQRpE441wvm3Z8Kp3BheWxvYWTFA0h7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZDE0ZWI0NmM0MzhjMjYxZDViNDQ2ZDJiODhhZTJmMjI2OWI3ZjNkNzcyYmVlNDExYTQ0ZTM4ZDcwYmU2ZGQ5ZjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZDE0ZWI0NmM0MzhjMjYxZDViNDQ2ZDJiODhhZTJmMjI2OWI3ZjNkNzcyYmVlNDExYTQ0ZTM4ZDcwYmU2ZGQ5ZjBhIiwidWlkIjoiNjQ0ZTM1Yzc1ZTE5MzFmZWMyZDQyODhiY2YwYmMxMTkiLCJ1c2VybmFtZSI6ImphZW1rIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTIwNTQxNjI4LCJoYXNoIjoiOTIyNTkzNWIxMDAyMDhmNzk4N2ZlMmJhNDIxN2I1ZmIwOGEwN2FlMDlmZDAxOTg1YTJlYzVkY2JhMzMwZDQ5NDYxZGI4M2NhZTUyNmUwYWJiZGFiYjg1Y2M5MDg5MTdkNTFlNWU2ZDEyZmZkMDM5Y2I4ODA1NTYxYjMzMzdlZWYiLCJoYXNoX21ldGEiOiJlY2QwOTRhMWQ1NTMxOTI2Y2YzMTIxNmU3NjdiNTIwMWYwMGE2ZWY0NGU3NTg0MWM5ZGE0YjZmMmZiZDEyOTExIiwic2Vxbm8iOjIyMDUzNzR9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiamFtZXMua29taW5pY2suY29tIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuNDUifSwiY3RpbWUiOjE1MjA1NDE2NTMsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiNWRiYmM5NDAwMDk3NjU4NmJjY2JjOTBlNDYzZDlmYTc4M2EyMGI3YTY5YmFjZDRmNDY2ZGEzZjc1MmEzMmFmMCIsInNlcW5vIjoxMywidGFnIjoic2lnbmF0dXJlIn2jc2lnxEAQ/aGI6LtSrNyAHM7pXPJ+Ts+kLJdmVPXHz93xPAQ/PJR+UymsCEoRzQev8vMPov0LpJv1eZtUj+HdMbL1m/cEqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQg+5D2GrKoz6V+kDXhcyATjW+R4W+Ti9mxaDV9z0fdsA2jdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jaemk
+
+==================================================================
