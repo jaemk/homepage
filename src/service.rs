@@ -91,6 +91,7 @@ fn serve_file<T: AsRef<Path>>(path: T) -> Result<rouille::Response> {
 /// Route the request to appropriate handler
 fn route_request(request: &rouille::Request, template: Arc<Tera>) -> Result<rouille::Response> {
     Ok(router!(request,
+        (HEAD) ["/"] => { rouille::Response::text("").with_status_code(200) },
         (GET) ["/"] => {
             template.render("home.html", &Context::new())?.to_html_resp()
         },
