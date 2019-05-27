@@ -1,6 +1,6 @@
 [package]
 name = "homepage"
-version = "0.2.8"
+version = "0.2.9"
 authors = ["James Kominick <james@kominick.com>"]
 
 [dependencies]

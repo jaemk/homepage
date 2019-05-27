@@ -98,6 +98,12 @@ fn route_request(request: &rouille::Request, template: Arc<Tera>) -> Result<roui
         (GET) ["/appinfo"] => {
             json!({"version": CONFIG.params["package"]["version"].as_str().unwrap_or("")}).to_json_resp()?
         },
+        (GET) ["/status"] => {
+            json!({
+                "status": "ok",
+                "version": CONFIG.params["package"]["version"].as_str().unwrap_or(""),
+            }).to_json_resp()?
+        },
         (GET) ["/favicon.ico"]  => { serve_file("static/assets/favicon.ico")? },
         (GET) ["/robots.txt"]   => { serve_file("static/robots.txt")? },
         (GET) ["/keybase.txt"]  => { serve_file("static/keybase.txt")? },
