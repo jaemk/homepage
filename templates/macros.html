@@ -1,9 +1,9 @@
 
 
 {% macro nav_link(id, hash, icon, text) %}
-    <a id="{{id}}" href="{{hash}}" class="trow clicky nav-link highlighty">
+<a id="{{id}}" href="{{hash}}" class="trow clicky nav-link highlighty" alt="{{text}}">
         <div class="nav-content valign-wrapper">
-            <i class="material-icons nav-icon" alt={{text}}>{{icon}}</i>
+            <i class="material-icons nav-icon" alt="{{text}}">{{icon}}</i>
             {{text}}
         </div>
     </a>
