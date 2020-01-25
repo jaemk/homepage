@@ -1,4 +1,4 @@
-FROM rust:1.35
+FROM rust:1.40
 
 # create a new empty shell
 RUN USER=root cargo new --bin homepage
