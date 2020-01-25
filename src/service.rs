@@ -1,18 +1,14 @@
-
 use std::env;
-use std::time;
 use std::fs;
 use std::path::Path;
 use std::sync::Arc;
+use std::time;
 
-use rouille;
-use env_logger;
 use chrono::Local;
 use tera::{Context, Tera};
 
-use {ToTextResponse, ToHtmlResponse, ToJsonResponse, CONFIG};
-use errors::*;
-
+use crate::errors::*;
+use crate::{ToHtmlResponse, ToJsonResponse, ToTextResponse, CONFIG};
 
 /// Initialize things
 /// - env logger
@@ -27,17 +23,19 @@ pub fn start(host: &str, port: u16) -> Result<()> {
     use std::io::Write;
     env_logger::Builder::new()
         .format(|buf, record| {
-            writeln!(buf, "{} [{}] - [{}] -> {}",
+            writeln!(
+                buf,
+                "{} [{}] - [{}] -> {}",
                 Local::now().format("%Y-%m-%d_%H:%M:%S"),
                 record.level(),
                 record.module_path().unwrap_or("<unknown>"),
                 record.args()
-                )
-            })
+            )
+        })
         .parse(&env::var("LOG").unwrap_or_default())
         .init();
 
-    let mut tera = compile_templates!("templates/**/*");
+    let mut tera = Tera::new("templates/**/*.html").expect("unable to compile tera termplates");
     tera.autoescape_on(vec!["html"]);
     let tera = Arc::new(tera);
 
@@ -49,11 +47,24 @@ pub fn start(host: &str, port: u16) -> Result<()> {
         let now = Local::now().format("%Y-%m-%d %H:%M%S");
         let log_ok = |req: &rouille::Request, resp: &rouille::Response, elap: time::Duration| {
             let ms = (elap.as_secs() * 1_000) as f32 + (elap.subsec_nanos() as f32 / 1_000_000.);
-            info!("[{}] {} {} -> {} ({}ms)", now, req.method(), req.raw_url(), resp.status_code, ms)
+            info!(
+                "[{}] {} {} -> {} ({}ms)",
+                now,
+                req.method(),
+                req.raw_url(),
+                resp.status_code,
+                ms
+            )
         };
         let log_err = |req: &rouille::Request, elap: time::Duration| {
             let ms = (elap.as_secs() * 1_000) as f32 + (elap.subsec_nanos() as f32 / 1_000_000.);
-            info!("[{}] Handler Panicked: {} {} ({}ms)", now, req.method(), req.raw_url(), ms)
+            info!(
+                "[{}] Handler Panicked: {} {} ({}ms)",
+                now,
+                req.method(),
+                req.raw_url(),
+                ms
+            )
         };
 
         // dispatch and handle errors
@@ -63,7 +74,7 @@ pub fn start(host: &str, port: u16) -> Result<()> {
                 Err(e) => {
                     use self::ErrorKind::*;
                     error!("Handler Error: {}", e);
-                    match *e {
+                    match e.kind() {
                         BadRequest(ref s) => {
                             // bad request
                             s.to_string().to_text_resp().with_status_code(400)
@@ -80,12 +91,17 @@ pub fn start(host: &str, port: u16) -> Result<()> {
     });
 }
 
-
 fn serve_file<T: AsRef<Path>>(path: T) -> Result<rouille::Response> {
     let path = path.as_ref();
-    let ext = path.extension().and_then(::std::ffi::OsStr::to_str).unwrap_or("");
+    let ext = path
+        .extension()
+        .and_then(::std::ffi::OsStr::to_str)
+        .unwrap_or("");
     let f = fs::File::open(&path).map_err(ErrorKind::FileOpen)?;
-    Ok(rouille::Response::from_file(rouille::extension_to_mime(ext), f))
+    Ok(rouille::Response::from_file(
+        rouille::extension_to_mime(ext),
+        f,
+    ))
 }
 
 /// Route the request to appropriate handler
@@ -120,4 +136,3 @@ fn route_request(request: &rouille::Request, template: Arc<Tera>) -> Result<roui
         }
     ))
 }
-

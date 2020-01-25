@@ -2,19 +2,20 @@
 name = "homepage"
 version = "0.2.9"
 authors = ["James Kominick <james@kominick.com>"]
+edition = "2018"
 
 [dependencies]
-error-chain = "0.11"
+error-chain = "0.12"
 clap = "2"
 env_logger = "0.5"
 log = "0.4"
 chrono = "0.4"
-tera = "0.11"
+tera = "1"
 lazy_static = "1"
 serde = "1"
 serde_derive = "1"
 serde_json = "1"
-toml = "0.4"
+toml = "0.5"
 
 rouille = "2"
 
