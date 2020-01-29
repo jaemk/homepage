@@ -45,6 +45,24 @@ body {
     outline: none;
 }
 
+.icon-arrow-upward:before {
+    content: "arrow_upward";
+}
+.icon-account-circle:before {
+    content: "account_circle";
+}
+.icon-star:before {
+    content: "star";
+}
+.icon-laptop-chromebook:before {
+    content: "laptop_chromebook";
+}
+.icon-business:before {
+    content: "business";
+}
+.icon-book:before {
+    content: "book";
+}
 
 .content {
     min-height: 100%;

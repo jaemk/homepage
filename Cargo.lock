@@ -401,7 +401,7 @@ dependencies = [
 
 [[package]]
 name = "homepage"
-version = "0.2.9"
+version = "0.2.11"
 dependencies = [
  "chrono 0.4.10 (registry+https://github.com/rust-lang/crates.io-index)",
  "clap 2.33.0 (registry+https://github.com/rust-lang/crates.io-index)",
