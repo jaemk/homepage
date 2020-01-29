@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    function scrollToHash() {
+    setTimeout(function scrollToHash() {
         var hash = window.location.hash;
         if (hash) {
             switch (hash) {
@@ -80,21 +80,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 case "#about":
                     about.scrollIntoView();
                     break;
-                case "#experience":
-                    experience.scrollIntoView();
+                case "#projects":
+                    projects.scrollIntoView();
                     break;
                 case "#technology":
                     technology.scrollIntoView();
                     break;
+                case "#experience":
+                    experience.scrollIntoView();
+                    break;
                 case "#education":
-                     ducation.scrollIntoView();
+                    education.scrollIntoView();
                     break;
                 default:
                     break;
             }
         }
-    }
-    scrollToHash();
+    }, 200);
 
     function handleResize() {
         var _width = width();
