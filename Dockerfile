@@ -1,4 +1,4 @@
-FROM rust:1.40
+FROM rust:1.46
 
 # create a new empty shell
 RUN USER=root cargo new --bin homepage
@@ -22,4 +22,4 @@ RUN rm ./target/release/deps/homepage*
 RUN cargo build --release
 
 # set the startup command to run your binary
-CMD ["./target/release/homepage", "serve", "--port", "80", "--public"]
+CMD ["./target/release/homepage"]
