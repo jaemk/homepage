@@ -1,4 +1,4 @@
-FROM rust:1.46
+FROM rust:1.49
 
 # create a new empty shell
 RUN USER=root cargo new --bin homepage
@@ -21,5 +21,12 @@ COPY ./templates ./templates
 RUN rm ./target/release/deps/homepage*
 RUN cargo build --release
 
+COPY ./.git .git
+RUN git rev-parse HEAD | head -c 7 | awk '{ printf "%s", $0 >"commit_hash.txt" }'
+RUN rm -rf .git
+
+RUN cp ./target/release/homepage homepage
+RUN rm -rf ./target
+
 # set the startup command to run your binary
-CMD ["./target/release/homepage"]
+CMD ["homepage"]
