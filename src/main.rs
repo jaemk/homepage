@@ -1,5 +1,3 @@
-#![recursion_limit = "1024"]
-
 mod logger;
 mod service;
 
@@ -23,14 +21,12 @@ lazy_static::lazy_static! {
             let drain = slog_term::CompactFormat::new(decorator).build().fuse();
             let drain = slog_async::Async::new(drain).build().fuse();
             let drain = slog::LevelFilter::new(drain, slog::Level::Debug).fuse();
-            let log = slog::Logger::root(drain, o!());
-            log
+            slog::Logger::root(drain, o!())
         } else {
             let drain = slog_json::Json::default(std::io::stderr()).fuse();
             let drain = slog_async::Async::new(drain).build().fuse();
             let drain = slog::LevelFilter::new(drain, slog::Level::Info).fuse();
-            let log = slog::Logger::root(drain, o!());
-            log
+            slog::Logger::root(drain, o!())
         }
     };
 
@@ -38,7 +34,6 @@ lazy_static::lazy_static! {
     pub static ref LOG: slog::Logger = BASE_LOG.new(slog::o!("app" => "homepage"));
 }
 
-#[derive(serde_derive::Deserialize)]
 pub struct Config {
     pub version: String,
     pub host: String,
@@ -47,15 +42,14 @@ pub struct Config {
 }
 impl Config {
     pub fn load() -> Self {
-        let mut f = fs::File::open("Cargo.toml").expect("Failed opening Cargo.toml");
-        let mut s = String::new();
-        f.read_to_string(&mut s).expect("Error reading Cargo.toml");
-        let cargo_manifest: toml::Value = toml::from_str(&s).expect("Failed parsing Cargo.toml");
+        let version = fs::File::open("commit_hash.txt")
+            .map(|mut f| {
+                let mut s = String::new();
+                f.read_to_string(&mut s).expect("Error reading commit_hash");
+                s
+            })
+            .unwrap_or_else(|_| "unknown".to_string());
 
-        let version = cargo_manifest["package"]["version"]
-            .as_str()
-            .unwrap_or("unknown")
-            .to_string();
         Self {
             version,
             host: env_or("HOST", "0.0.0.0"),
@@ -66,6 +60,7 @@ impl Config {
                 .to_string(),
         }
     }
+
     pub fn ensure_loaded(&self) -> anyhow::Result<()> {
         Ok(())
     }
