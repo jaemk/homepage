@@ -29,4 +29,4 @@ RUN cp ./target/release/homepage homepage
 RUN rm -rf ./target
 
 # set the startup command to run your binary
-CMD ["homepage"]
+CMD ["./homepage"]
