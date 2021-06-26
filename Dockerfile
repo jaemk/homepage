@@ -1,4 +1,4 @@
-FROM rust:1.49
+FROM rust:1.53 as builder
 
 # create a new empty shell
 RUN USER=root cargo new --bin homepage
@@ -12,10 +12,8 @@ COPY ./Cargo.toml ./Cargo.toml
 RUN cargo build --release
 RUN rm src/*.rs
 
-# copy all source/static/resource files
+# copy all source files
 COPY ./src ./src
-COPY ./static ./static
-COPY ./templates ./templates
 
 # build for release
 RUN rm ./target/release/deps/homepage*
@@ -25,8 +23,17 @@ COPY ./.git .git
 RUN git rev-parse HEAD | head -c 7 | awk '{ printf "%s", $0 >"commit_hash.txt" }'
 RUN rm -rf .git
 
-RUN cp ./target/release/homepage homepage
-RUN rm -rf ./target
+FROM debian:buster-slim
+RUN mkdir /homepage
+WORKDIR /homepage
+
+RUN mkdir ./bin
+COPY --from=builder /homepage/target/release/homepage ./homepage
+COPY --from=builder /homepage/commit_hash.txt ./commit_hash.txt
+
+# copy all static files
+COPY ./static ./static
+COPY ./templates ./templates
 
 # set the startup command to run your binary
 CMD ["./homepage"]
