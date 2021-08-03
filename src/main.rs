@@ -53,7 +53,7 @@ impl Config {
         Self {
             version,
             host: env_or("HOST", "0.0.0.0"),
-            port: env_or("PORT", "5000").parse().expect("invalid port"),
+            port: env_or("PORT", "3000").parse().expect("invalid port"),
             log_format: env_or("LOG_FORMAT", "json")
                 .to_lowercase()
                 .trim()

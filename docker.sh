@@ -13,7 +13,7 @@ latest_image="docker.jaemk.me/homepage:latest"
 docker build -t $tagged_image .
 docker build -t $latest_image .
 
-ports="-p 4000:4000"
+ports="-p 3000:3000"
 
 # set envs from csv env var
 if [[ -z "$ENVS" ]]; then
