@@ -49,20 +49,20 @@
 
         <div class="proj-group">
             <div class="row proj-row">
+                {{ macros::proj(name="cached", link_url="https://github.com/jaemk/cached",
+                                desc="Function memoization inspired by Python decorators") }}
+                {{ macros::proj(name="self_update", link_url="https://github.com/jaemk/self_update",
+                                desc="Self-update functionality for Rust executables") }}
+            </div>
+            <div class="row proj-row">
                 {{ macros::proj(name="migrant_lib", link_url="https://github.com/jaemk/migrant_lib",
                                 desc="Embeddable database configuration and migration management library") }}
                 {{ macros::proj(name="migrant", link_url="https://github.com/jaemk/migrant",
                                 desc="Database migration management") }}
             </div>
             <div class="row proj-row">
-                {{ macros::proj(name="self_update", link_url="https://github.com/jaemk/self_update",
-                                desc="Self-update functionality for Rust executables") }}
                 {{ macros::proj(name="transfer", link_url="https://github.com/jaemk/transfer",
                                 desc="Encrypted file sharing utility -- server, web client, & CLI client") }}
-            </div>
-            <div class="row proj-row">
-                {{ macros::proj(name="cached", link_url="https://github.com/jaemk/cached",
-                                desc="Function memoization inspired by Python decorators") }}
                 {{ macros::proj(name="proxy", link_url="https://github.com/jaemk/proxy",
                                 desc="Command-line proxy server") }}
             </div>
