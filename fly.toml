@@ -1,0 +1,44 @@
+# fly.toml file generated for kom-homepage on 2022-11-04T23:42:35-04:00
+
+app = "kom-homepage"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+  HOST = "0.0.0.0"
+  PORT = "3000"
+  LOG_FORMAT = "json"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  internal_port = 3000
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 200
+    soft_limit = 20
+    type = "connections"
+
+  [[services.http_checks]]
+    grace_period = "5s"
+    interval = "60s"
+    method = "get"
+    path = "/status"
+    protocol = "http"
+    restart_limit = 0
+    timeout = "2s"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+

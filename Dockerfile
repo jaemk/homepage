@@ -1,4 +1,4 @@
-FROM rust:1.53 as builder
+FROM rust:1.65 as builder
 
 # create a new empty shell
 RUN USER=root cargo new --bin homepage
