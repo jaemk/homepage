@@ -28,6 +28,7 @@
             {{ macros::image_link(image_url="/static/assets/linkedin.png",
                                 url="https://www.linkedin.com/in/james-kominick/",
                                 text="linkedin/james-kominick") }}
+            {{ macros::icon_link(icon="camera", url="https://photo.kominick.com", text="photography") }}
             {{ macros::icon_link(icon="mail_outline", url="mailto:james@kominick.com", text="james@kominick.com") }}
         </div>
     </div>
@@ -35,7 +36,7 @@
     <div id="-about" class="section myblue">
         <h4 class="section-title"> About </h4>
         <div class="mugshot-container">
-            <img class="mugshot" src="/static/assets/mugshot.jpg"/>
+            <img class="mugshot" src="/static/assets/mugshot2.jpg"/>
         </div>
         <div class="about-text">
             Highly motivated, proactive, detail-oriented software engineer with a background in mechanical engineering.
@@ -113,23 +114,32 @@
         <h4 class="section-title"> Experience </h4>
 
         <div class="exp-entry card-panel z-depth-4">
-            {{ macros::exp_title(org="Capital One", title="Lead Software Engineer", time="2021 to Present") }}
+            {{ macros::exp_title(title="Lead Software Engineer") }}
+            {{ macros::exp_company(org="Capital One", time="2021 to Present") }}
         </div>
 
         <div class="exp-entry card-panel z-depth-4">
-            {{ macros::exp_title(org="Lola.com", title="Staff Software Engineer", time="2021") }}
+            {{ macros::exp_title(title="Staff Software Engineer (2021)") }}
+            {{ macros::exp_title(title="Senior Software Engineer (2019 to 2021)") }}
+            {{ macros::exp_title(title="Software Engineer (2018 to 2019)") }}
+            {{ macros::exp_company(org="Lola.com", time="2018 to 2021") }}
+            <hr class="exp-hr"/>
+
+            {{ macros::exp_bullet(t="Delivered a ground-up business expense management / budgeting / charge card product on a 3 month timeline after global pandemic wiped out travel spend") }}
+            {{ macros::exp_bullet(t="Integrated with banking providers to support card issuing, real time transaction authorization webhooks, and check/ACH payments") }}
+            {{ macros::exp_bullet(t="Redesigned and implemented new flight search process to allow streaming responses, resulting in search speeds faster than Kayak and Expedia") }}
+            {{ macros::exp_bullet(t="Evaluated and implemented integrations with travel content providers for searching and booking flights, hotels, and cars") }}
+            {{ macros::exp_bullet(t="Collaborated with external business partners to unlock exclusive flight and hotel rates") }}
+            {{ macros::exp_bullet(t="Developed and automated extensive reporting for in-house and external partners") }}
+            {{ macros::exp_bullet(t="Championed static analysis and strict type checking on Python code bases") }}
+            {{ macros::exp_bullet(t="Developed an extensive and reusable python utility library utilized across the organization") }}
+            {{ macros::exp_bullet(t="Jointly led an organization-wide upgrade from python 2 to 3") }}
+            {{ macros::exp_bullet(t="Participated regularly in the screening, interviewing, and hiring process") }}
         </div>
 
         <div class="exp-entry card-panel z-depth-4">
-            {{ macros::exp_title(org="Lola.com", title="Senior Software Engineer", time="2019 to 2021") }}
-        </div>
-
-        <div class="exp-entry card-panel z-depth-4">
-            {{ macros::exp_title(org="Lola.com", title="Software Engineer", time="2018 to 2019") }}
-        </div>
-
-        <div class="exp-entry card-panel z-depth-4">
-            {{ macros::exp_title(org="Communally", title="Application Programmer Analyst", time="2016 to 2018") }}
+            {{ macros::exp_title(title="Application Programmer Analyst") }}
+            {{ macros::exp_company(org="Communally", time="2016 to 2018") }}
             <hr class="exp-hr"/>
 
             {{ macros::exp_bullet(t="Lead development of a responsive budgeting tool webapp (JavaScript/React)") }}
@@ -147,7 +157,8 @@
         </div>
 
         <div class="exp-entry card-panel z-depth-4">
-            {{ macros::exp_title(org="Philly Shipyard", title="Hull Designer", time="2015 to 2016") }}
+            {{ macros::exp_title(title="Hull Designer") }}
+            {{ macros::exp_company(org="Philly Shipyard", time="2015 to 2016") }}
             <hr class="exp-hr"/>
 
             {{ macros::exp_bullet(t="Developed and maintained purpose built Python modules utilized by designers across multiple companies") }}

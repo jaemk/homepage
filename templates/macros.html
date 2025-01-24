@@ -30,8 +30,12 @@
 {% endmacro icon_link %}
 
 
-{% macro exp_title(org, title, time) %}
-    <span class="exp-title">{{title}}</span>
+{% macro exp_title(title) %}
+    <div><span class="exp-title">{{title}}</span></div>
+{% endmacro exp_title %}
+
+
+{% macro exp_company(org, time) %}
     <div>
         {% if time|length > 0 %}
             <span class="exp-company">{{org}}</span>
@@ -41,7 +45,7 @@
             <span class="exp-company">{{org}}</span>
         {% endif %}
     </div>
-{% endmacro exp_title %}
+{% endmacro exp_company %}
 
 
 {% macro proj(name, link_url, desc) %}
