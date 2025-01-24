@@ -1,4 +1,4 @@
-FROM rust:1.84 as builder
+FROM rust:1.84-bullseye as builder
 
 # create a new empty shell
 RUN USER=root cargo new --bin homepage
@@ -23,7 +23,7 @@ COPY ./.git .git
 RUN git rev-parse HEAD | head -c 7 | awk '{ printf "%s", $0 >"commit_hash.txt" }'
 RUN rm -rf .git
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 RUN mkdir /homepage
 WORKDIR /homepage
 
